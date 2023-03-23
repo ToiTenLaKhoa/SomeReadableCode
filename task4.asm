@@ -43,8 +43,6 @@ comapre3:
        BEQ(check, increase_j, r31)
        BNE(check, swap, r31)
 swap:
-       // temp1 stores to A[j + 1]
-       // temp2 stores to A[j]
        ST(temp1, A + 4, offset)
        ST(temp2, A, offset)
        BR(increase_j)
