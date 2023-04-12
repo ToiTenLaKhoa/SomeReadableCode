@@ -15,14 +15,19 @@ A:
 Start:
     i = 5 // For example i=5
 load:
-	  ADDC(r31, i , r0)
+	ADDC(r31, i , r0) //store i at R0
     MULC(r0, 4, r20)
     LD(r31, A + r20, r1)
     LD(r31, A + r20 + 4, r2)
-swap: //use r
-    ADDC()
-store:
-	ST(r1, A + r0, r31)
-	ST(r2, A + r0 + 4, r31)
+    //check if (r2 <= r1)
+    CMPLE(r2, r1, r30)
+    BEQ(r30, store_only, r31)
+swap_and_store:
+    ST(r2, A + r20, r31)
+	ST(r1, A + r20 + 4, r31)
+    BR(end)
+store_only:
+	ST(r1, A + r20, r31)
+	ST(r2, A + r20 + 4, r31)
 end:
     HALT()
