@@ -7,8 +7,8 @@ A:
      LONG(3)       // A[2] – Address A+8  = A+4*2
      LONG(4)       // A[3] – Address A+12 = A+4*3
      LONG(5)       // …
-     LONG(6)
-     LONG(7)
+     LONG(6)       // A[5] - Address A+20
+     LONG(7)       // A[6] - Address A+24
      LONG(8)
 
 
